@@ -1,0 +1,10 @@
+^C:\USERS\VENKAT\ONEDRIVE\DESKTOP\PROTOTYPE1\BUILD\CMAKEFILES\09BD9BB6086D74C6DDB516CE185B56AA\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Venkat/OneDrive/Desktop/prototype1 -BC:/Users/Venkat/OneDrive/Desktop/prototype1/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Venkat/OneDrive/Desktop/prototype1/build/pdf_project.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

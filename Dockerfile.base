@@ -1,0 +1,24 @@
+FROM ubuntu:22.04
+
+# Install base tools, Poppler development libraries, and nlohmann-json-dev
+RUN apt-get update && apt-get install -y \
+    g++ \
+    python3 \
+    python3-pip \
+    git \
+    cmake \
+    make \
+    curl \
+    unzip \
+    ninja-build \
+    libpoppler-cpp-dev \
+    libpoppler-private-dev \
+    libpoppler-dev \
+    nlohmann-json3-dev
+
+# Install depot_tools for GN
+RUN git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git /depot_tools \
+    && echo 'export PATH=$PATH:/depot_tools' >> /etc/profile \
+    && export PATH=$PATH:/depot_tools
+
+ENV PATH="/depot_tools:${PATH}"
